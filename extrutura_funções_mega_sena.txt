@@ -1,0 +1,89 @@
+ARQ_HTML_DEZENAS              = 'd_megasc.htm'
+DATA_ANO_ATUAL                = int ( date.today().strftime ( '%Y' ) ) # data do ano atual
+LINK_CAIXA_ZIP                = 'http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_mgsasc.zip'
+
+# Variáveis globais p/ analize.
+ANO_ESCOLHIDO_PARA_ANALIZE    = "" # Sendo populada em 'imprime_menu'
+NUM_TOTAL_JOGOS_ANALIZE       = 0
+LISTA_TODAS_LINHAS_ELEMENTOS  = []
+LISTA_TODAS_ELEMENTOS_ANALIZE = []
+LISTA_TODAS_SEQUENCIA_OURO    = [] # ONDE VAI FICAR GUARDADAS AS SEQUÊNCIAS ENQUADRADAS 
+                                     NA ESTATÍSTICA.
+dic_qualifica = {}
+
+
+--------------------- Inicializa variáveis Globais ----------
+
+inicializa_variaveis_globais  ()
+
+--------------------- funções Técnicas ----------------------
+
+baixar_arq_megaSena           ()
+extrai_zipMegaSena            ()
+extrai_sequencias_arquivo_html()
+
+--------------------- Todas Funções Estátisticas ------------
+
+   estatistica_numeros_mais_caem() # 
+   numerosPares_impares         () # 1  func_filtro_par_impar                ()
+   numeros_primos               () # 2  func_filtro_num_primos               () 
+   fibonacci                    () # 3  func_filtro_fibonacci                () 
+   sorteios_linhas              () # 4  func_filtro_linhas                   ()
+   sorteios_colunas             () # 5  func_filtro_colunas                  ()
+   quadrantes_mais_sairam       () # 6  func_filtro_quadrantes               () 
+   dupla_consecutivas           () # 7  func_filtro_duplaConsecutiva         () 
+   soma_num_sequencia           () # 8  func_filtro_soma_sequencias          ()
+   mascara_unidade_dezena       () # 9  func_filtro_mascara                   ()
+   repeticoes_mesma_dezena      () # 10 func_filtro_repeticao_dezena         () 
+   numeros_quadraticos          () # 11 func_filtro_numeros_quadraticos      ()
+   progressao_aritmetica        () # 12 func_filtro_progressao_aritmetica    ()
+   soma_digitos                 () # 13 func_filtro_soma_digitos             ()
+   multiplicidade               () # 14 func_filtro_multiplicidade           ()
+   sub_sequencias_repetidas     () # 15 func_filtro_sub_sequencias_repetidas ()
+   sub_digitos_repetidos        () # 16 func_filtro_digitos_repetidos        ()
+-------------------- Funções de Apoio ----------------------
+
+geracao_todas_possibilidades_mega()
+gera_volante                     () # Gera sequências aleatórias em ordem crescente.
+verifica_sequencia_todos_jogos   () 
+analiza_indice_lista             ()
+analize_sequencia_conjuntos      () # está função recebe uma sequência em string e 
+                                      rotorna em quantos jogos ela foi encontrada.
+
+-------------------- Função testa se sequência é Ouro -------
+
+func_conjunto_regras_ouro         () - Função usada p/ testar uam única sequência.
+func_conjunto_regras_ouro_todas_p () - Funçao teste de seqência p/ todas as possibilidades.
+
+-------------------- Funções Filtro -------------------------
+
+func_filtro_par_impar                () # 1
+func_filtro_num_primos               () # 2
+func_filtro_fibonacci                () # 3
+func_filtro_linhas                   () # 4
+func_filtro_colunas                  () # 5
+func_filtro_quadrantes               () # 6
+func_filtro_soma_sequencias          () # 7
+func_filtro_numeros_quadraticos      () # 8
+func_filtro_progressao_aritmetica    () # 9
+func_filtro_soma_digitos             () # 10
+func_filtro_multiplicidade           () # 11
+func_filtro_sub_sequencias_repetidas () # 12
+func_filtro_mascara                  () # 13
+func_filtro_repeticao_dezena         () # 14
+func_filtro_duplaConsecutiva         () # 15
+func_filtro_digitos_repetidos        () # 16
+
+--------------------- Chama todas Funções Estátisticas ------
+
+sequencia_todas_funcoes () - Cada estatística chamada vai imprimindo seus resultados.
+
+
+--------------------- Guarda dados em arq txt --------------
+
+func_guarda_em_arq_sequencias_ouro ()
+
+--------------------- Funções de Menu ----------------------
+
+imprime_menu()
+
